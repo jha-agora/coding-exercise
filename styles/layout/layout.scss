@@ -1,0 +1,21 @@
+/* Primary content container */
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+
+    @include breakpoint(large){
+        width: 75%;
+    }
+
+}
+
+/* General container layout, not used directly */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}

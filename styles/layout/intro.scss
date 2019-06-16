@@ -1,0 +1,33 @@
+/* Intro contnet container */
+.intro {
+    @extend .container;
+
+    &__blurb {
+        font-size: 15pt;
+        text-align: center;
+        width: 350px; 
+        margin: 35px; 
+    }
+    
+
+    &__divider {
+        width: 70%;
+        height: .35vw;
+        background-color: $light-blue;
+        border: none;
+    }
+
+    &__text {
+        margin: 20px;
+        text-align: center;
+        font-size: 17pt;
+        font-weight: bold;
+    }
+
+    @include breakpoint(large){
+        &__text {
+            font-size: 26pt;
+            width: 75%;
+        }
+    }
+}

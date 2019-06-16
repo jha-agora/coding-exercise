@@ -1,0 +1,28 @@
+.appeal {
+    @extend .container;
+    position: relative;
+    background-color: $dark-blue; 
+
+    p {
+        color: white;
+        font-size: 14pt;
+        font-style: italic;
+        padding: 25px 0px 25px 0px;
+    }
+
+    &__arrow-down {
+        width: 0;
+        height: 0;
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-top: 50px solid #05263a;
+        position: absolute;
+        top: 100%;
+      }
+      
+}
+
+.reservation {
+    @extend .container;
+    padding: 60px 0px 0px 0px;
+}
