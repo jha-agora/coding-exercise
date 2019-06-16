@@ -24,6 +24,13 @@
         font-weight: bold;
     }
 
+    @include breakpoint(medium){
+        &__text {
+            font-size: 26pt;
+            width: 75%;
+        }
+    }
+
     @include breakpoint(large){
         &__text {
             font-size: 26pt;

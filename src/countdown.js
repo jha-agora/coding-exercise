@@ -3,7 +3,6 @@
  * on every tick (seconds)
  * 
  * @param {Function} onTick - Callback invoked every second after this function is called
- * @returns Object;
  */
 function countdown(onTick = function(){}){
 
@@ -19,6 +18,9 @@ function countdown(onTick = function(){}){
     //Calculate the time between the two dates in seconds
     const secondsRemaining = (eventDate.getTime() - nowDate.getTime()) / 1000;
     
+    //Invoke our callback once on start
+    onTick(splitSeconds(secondsRemaining));
+
     //Start our actual countdown
     let decrement = 0;
     setInterval(() => {
@@ -28,27 +30,38 @@ function countdown(onTick = function(){}){
          */
         let seconds = secondsRemaining - decrement;
 
-        /**
-         * Calculate our days, hours, mins, and seconds
-         */
-        let days = Math.floor(seconds /  86400);
-        seconds = seconds % 86400; //Sets the remaining time for the next calculation (hours)
-        let hours = Math.floor(seconds / 3600);
-        seconds = seconds % 3600;
-        let min = Math.floor(seconds / 60);
-        seconds = seconds % 60;
-
-        //Invoke the onTick callback with our current countdown values
-        onTick({
-            days: days,
-            hours: hours,
-            min: min,
-            sec: Math.floor(seconds)
-        });
+        //Invoke callback each second with new time
+        onTick(splitSeconds(seconds));
 
         //Decrement by one second
         decrement += 1;
     }, 1000)
+}
+
+/**
+ * Splits an amount of time given in seconds to days,
+ * hours, minutes, and seconds.
+ * 
+ * @param {Number} seconds - An amount of time in seconds
+ * @returns object
+ */
+function splitSeconds(seconds){
+    /**
+     * Calculate our days, hours, mins, and seconds
+     */
+    let days = Math.floor(seconds /  86400);
+    seconds = seconds % 86400; //Sets the remaining time for the next calculation (hours)
+    let hours = Math.floor(seconds / 3600);
+    seconds = seconds % 3600;
+    let min = Math.floor(seconds / 60);
+    seconds = seconds % 60;
+
+    return {
+        days: days,
+        hours: hours,
+        min: min,
+        sec: Math.floor(seconds)
+    }
 }
 
 export default countdown;

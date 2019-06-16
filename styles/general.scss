@@ -19,9 +19,14 @@
     }
 }
 
+.toggle {
+    &__label {
+        margin-left: 30px;
+    }
+}
+
 .fetch-result {
     font-size: 16pt;
-    transform: translateY(50px);
     opacity: 0;
     transition: 300ms ease-out;
 }

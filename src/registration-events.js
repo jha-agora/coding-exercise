@@ -20,10 +20,7 @@ function handleRegistrationClicked(e){
     fetchEndpoint((result) => {
         let resultLabel = document.getElementById(e.srcElement.id + "-result");
             resultLabel.innerHTML = result.submitok;
-
-            //Resetting some style properties for a transition effect
-            resultLabel.style.opacity = 1;
-            resultLabel.style.transform = "translateY(0px)";
+            resultLabel.style.opacity = 1; //Resetting some style properties for a transition effect
     })
 }
 

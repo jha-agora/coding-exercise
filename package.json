@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "style": "node-sass --watch ./styles/main.scss ./build/styles.css",
+    "style": "node-sass --watch ./styles/main.scss ./build/styles.css --output-style compressed",
     "dev": "webpack --watch  --mode=development",
     "build": "webpack --mode=production",
     "server": "node server.js"
